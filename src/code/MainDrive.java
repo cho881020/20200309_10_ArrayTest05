@@ -78,6 +78,12 @@ public class MainDrive {
 			
 			System.out.println(strikeCount+"S " + ballCount + "B 입니다.");
 			
+//			추가로 검사. => 만약 3S를 맞췄다면 무한반복 탈출.
+			if (strikeCount == 3) {
+				System.out.println("정답입니다!");
+				break;
+			}
+			
 		}
 		
 		
