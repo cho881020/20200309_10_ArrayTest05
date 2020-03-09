@@ -30,6 +30,49 @@ public class MainDrive {
 //		456 입력 => 6 => 10으로 나눈 나머지.
 		userInputArr[2] = num % 10;
 		
+		
+//		문제와 입력이 전부 배열로 분리됨.
+//		 => ?S ?B인지 판단.
+//		 => 스트라이크의 갯수 / 볼 갯수를 저장할 변수가 필요하다!
+		int strikeCount=0;
+		int ballCount=0;
+		
+//		입력과 문제를 비교해서 스트라이크 / 볼 갯수 카운팅
+		
+		for (int i=0 ; i < userInputArr.length ; i++) {
+			for (int j=0 ; j < answerArr.length ; j++) {
+				
+//				내가 입력한 i번째 숫자와
+//				정답의 j번째 숫자가 같은가?
+//				일단 숫자가 같아야 S/B이건 판단할 가치가 있다.
+				
+				if (userInputArr[i] == answerArr[j]) {
+					
+//					추가검사. 값이 같을때, 위치도 같은가?
+//					위치가 같다면? 스트라이크 찾음.
+//					위치가 다르다면? 볼 찾음.
+					
+					if (i == j) {
+//						숫자도 같고 위치도 같음. => S
+//						S 한개 더 찾았다. 증가
+						strikeCount++;
+					}
+					else {
+//						숫자는 같은데 위치가 다름. => B 한개 더 찾음.
+						ballCount++;
+					}
+					
+					
+				}
+				
+			}
+		}
+		
+//		?S ?B인지 계산이 끝난 상태.
+//		화면에 결과 출력.
+		
+		System.out.println(strikeCount+"S " + ballCount + "B 입니다.");
+		
 	}
 
 }
