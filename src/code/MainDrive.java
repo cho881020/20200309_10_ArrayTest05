@@ -13,12 +13,18 @@ public class MainDrive {
 		
 		Scanner scan = new Scanner(System.in);
 		
+//		몇번이나 시도했는지 저장할 변수.
+		int tryCount = 0;
+		
 //		한번 입력받고 끝이 아니라, 정답을 맞출때 까지 반복 입력.
 //		반복 횟수가 불명확한 반복 => while (true) 활용
 		
 		while(true) {
 			System.out.print("세자리 숫자로 정답 입력 : ");
 			int num = scan.nextInt();
+			
+//			한번 시도 했다고 증가처리.
+			tryCount++;
 			
 //			입력받은 세자리 숫자를 배열로 분리.
 //			123 => {1,2,3} 배열로.
@@ -81,6 +87,7 @@ public class MainDrive {
 //			추가로 검사. => 만약 3S를 맞췄다면 무한반복 탈출.
 			if (strikeCount == 3) {
 				System.out.println("정답입니다!");
+				System.out.println(tryCount + "회 만에 맞췄습니다.");
 				break;
 			}
 			
