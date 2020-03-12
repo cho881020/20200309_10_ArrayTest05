@@ -2,6 +2,8 @@ package code;
 
 import java.util.Scanner;
 
+import sun.security.util.ArrayUtil;
+
 public class MainDrive {
 	
 	public static void main(String[] args) {
@@ -9,7 +11,42 @@ public class MainDrive {
 //		정답은 471로 강제 설정. => 배열로 만들면 좀더 편함.
 		int[] answerArr = {4,7,1};
 		
+		for (int i=0 ; i < answerArr.length ; i++) {
+			answerArr[i] = 0; // 정답을 000으로 변경.
+		}
+		
+//		컴퓨터가 문제를 랜덤으로 3자리 숫자로 출제.
+//		 제약조건. 0은 사용하지 않는다. 1~9로 랜덤.
+//		 세 자리 숫자는 중복되면 안됨.
+		
 //		사용자에게 세자리숫자 입력 => 배열로 분리.
+		
+		for (int i=0 ; i <answerArr.length ; i++) {
+			
+			while (true) {
+				
+				int randomNum = (int) (Math.random()*9+1);
+				
+//				중복검사? 로직 작성. => 배열이 숫자를 가지고있나? 판단. 기능 검색.
+//				 => 검색 결과 마땅치 않다. 직접 로직 작성
+				
+				boolean isDuplOk = true;
+				for (int num : answerArr) {
+					if (num == randomNum) {
+						isDuplOk = false;
+						break;
+					}
+				}
+				
+				if (isDuplOk) {
+					answerArr[i] = randomNum;
+					break;
+				}
+				
+				
+			}
+			
+		}
 		
 		Scanner scan = new Scanner(System.in);
 		
